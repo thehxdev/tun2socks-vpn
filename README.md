@@ -2,7 +2,7 @@
 A simple Bash script to configure and run [tun2socks](https://github.com/xjasonlyu/tun2socks) on your Linux machine for
 creating a VPN tunnel that routes all of your traffic to a socks5 proxy that probably is running on your local network.
 
-This script can be used with [Xray-Core](https://github.com/thehxdev/xray-core) or other proxy/tunneling solutions that does not
+This script can be used with [Xray-Core](https://github.com/xtls/xray-core) or other proxy/tunneling solutions that does not
 support VPN-Mode for routing and tunneling all of your traffic.
 
 > [!WARNING]
