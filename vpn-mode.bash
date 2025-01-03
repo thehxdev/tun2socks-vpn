@@ -29,6 +29,7 @@ cleanup() {
     ip route restore < "$IP_ROUTE_RULES_PATH"
 
     rm -rf "$IP_ROUTE_RULES_PATH" "$DEFAULT_INFO_PATH"
+    kill -9 $(pgrep tun2socks)
 }
 
 run_tun2socks() {
