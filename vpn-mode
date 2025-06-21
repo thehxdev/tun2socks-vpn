@@ -63,13 +63,13 @@ EOF
     fi
 
     ip route del default
-    ip route add "$CONFIG_EXTERNAL_SERVER_IP" via $DEFAULT_GATEWAY dev $DEFAULT_INTERFACE metric 10
+    ip route add default via 198.18.0.1 dev tun0
+
+    ip route add "$CONFIG_EXTERNAL_SERVER_IP" via $DEFAULT_GATEWAY dev $DEFAULT_INTERFACE
 
     for i in "${CONFIG_EXCLUDE_CIDRS[@]}"; do
-        ip route add "$i" via $DEFAULT_GATEWAY dev $DEFAULT_INTERFACE metric 10
+        ip route add "$i" via $DEFAULT_GATEWAY dev $DEFAULT_INTERFACE
     done
-
-    ip route add default via 198.18.0.1 dev tun0 metric 1
 
     local OUTPUT=$(systemd-run -p MemoryLimit=100M -p CPUQuota=20% --no-block -- \
         tun2socks -device $TUN_INTERFACE -proxy "$CONFIG_PROXY" --loglevel silent 2>&1 >/dev/null)
