@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 # Your VPN server public IP address
+# example: '10.10.10.1'
 CONFIG_EXTERNAL_SERVER_IP=''
 
 # List of IP CIDRs that you want to exclude
-CONFIG_EXCLUDE_CIDRS=('')
+# example: ('192.168.1.0/24' '10.10.0.0/16')
+CONFIG_EXCLUDE_CIDRS=()
 
-# Your (probably local) proxy server
+# Your Socks5 proxy server
 CONFIG_PROXY='socks5://127.0.0.1:10808'
